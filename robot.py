@@ -25,7 +25,7 @@ class Communication:
 
     new_event = False 
 
-    def __init__(self, robotId, host="192.168.248.216", port=9090):
+    def __init__(self, robotId, host="10.42.0.77", port=9090):
         self.robotId = robotId
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.connect((host, port))
@@ -177,7 +177,7 @@ class RoboticArm:
             if self.com.event_table[2]:
                 self.mc.pause()
                 continue
-            self.coords = self.mc.get_angles()
+            #self.coords = self.mc.get_angles()
             for i in range(6):
                 if self.com.control_table[i] > 0:
                     # self.mc.jog_angle(i + 1, 1, abs(self.com.control_table[i]))
